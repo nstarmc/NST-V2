@@ -16,11 +16,17 @@
         <Grid Grid.Column="0">
             <StackPanel>
                 <ui:Card Margin="6,6,6,0">
+                    <ui:Card.Background>
+                        <SolidColorBrush Color="#B3FFFFFF" Opacity="0.485"/>
+                    </ui:Card.Background>
                     <StackPanel>
                         <TextBlock Text="草木扎根于无垠之中，叶梢朝向繁星生长。" TextWrapping="Wrap"  FontSize="20"  Margin="0,0,0,0" FontFamily="{StaticResource ali}"/>
                     </StackPanel>
                 </ui:Card>
                 <ui:Card Margin="6,6,6,0">
+                    <ui:Card.Background>
+                        <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
+                    </ui:Card.Background>
                     <StackPanel>
                         <TextBlock Text="公告" FontSize="20" FontWeight="Bold" Margin="0,0,0,6"/>
                         <TextBlock Text="正在获取公告内容······"/>
@@ -32,6 +38,9 @@
         <Grid Grid.Column="1" Margin="6,6,6,0">
             <StackPanel>
                 <ui:Card>
+                    <ui:Card.Background>
+                        <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
+                    </ui:Card.Background>
                     <Image Source="/Resources/logo3.png" Width="256"/>
                 </ui:Card>
             </StackPanel>

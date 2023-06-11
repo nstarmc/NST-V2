@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="ali">pack://application:,,,/Resources/Alimama_DongFangDaKai_Regular.ttf#阿里妈妈东方大楷</FontFamily>
+            <FontFamily x:Key="iconfont">pack://application:,,,/Resources/iconfont.ttf#iconfont</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

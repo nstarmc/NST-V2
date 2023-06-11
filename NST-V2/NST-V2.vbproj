@@ -10,6 +10,13 @@
   <ItemGroup>
     <None Remove="Resources\Alimama_DongFangDaKai_Regular.ttf" />
     <None Remove="Resources\logo3.png" />
+    <None Remove="Resources\Navview\banben.png" />
+    <None Remove="Resources\Navview\bangzhu.png" />
+    <None Remove="Resources\Navview\guanyu.png" />
+    <None Remove="Resources\Navview\java.png" />
+    <None Remove="Resources\Navview\shezhi.png" />
+    <None Remove="Resources\Navview\shouye.png" />
+    <None Remove="Resources\Navview\yunxiazai.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +39,13 @@
   <ItemGroup>
     <Resource Include="Resources\Alimama_DongFangDaKai_Regular.ttf" />
     <Resource Include="Resources\logo3.png" />
+    <Resource Include="Resources\Navview\banben.png" />
+    <Resource Include="Resources\Navview\bangzhu.png" />
+    <Resource Include="Resources\Navview\guanyu.png" />
+    <Resource Include="Resources\Navview\java.png" />
+    <Resource Include="Resources\Navview\shezhi.png" />
+    <Resource Include="Resources\Navview\shouye.png" />
+    <Resource Include="Resources\Navview\yunxiazai.png" />
   </ItemGroup>
 
 </Project>
