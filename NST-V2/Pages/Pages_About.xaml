@@ -3,11 +3,35 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:NST_V2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Pages_About">
     <Grid>
-        <ToggleButton Content="1"/>
+        <TabControl Margin="10" Style="{StaticResource TabControlCapsuleSolid}" Background="{x:Null}" BorderThickness="0,0,0,0">
+            <TabItem Header="版本信息">
+            </TabItem>
+            <TabItem Header="开发人员">
+            </TabItem>
+            <TabItem Header="使用的开源项目">
+                <StackPanel>
+                        <ui:CardControl Margin="6,6,6,0">
+                            <ui:CardControl.Header>
+                                <StackPanel>
+                                    <TextBlock Text="字体：阿里妈妈东方大楷" FontWeight="Bold" Margin="0,0,0,6"/>
+                                    <TextBlock Text="阿里妈妈东方大楷体的知识产权和相关权益归属于淘宝（中国）软件有限公司（以下简称“阿里妈妈”）;&#13;阿里妈妈授权个人、企业等用户在遵守本声明相关条款的前提下，可以下载、安装和使用上述阿里妈妈字体，该授权是免费的普通许可，用户可基于合法目的用于商业用途或非商业用途，但不得以任何违反本声明第4条及法律法规、政策、规章或公序良俗的方式使用。" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </ui:CardControl.Header>
+                            <ui:Hyperlink Content="打开网站" Foreground="#FF80B9EE" NavigateUri="https://www.iconfont.cn/fonts/detail?spm=a313x.7781069.1998910419.d9df05512&amp;cnid=IhcTcFymWeyf">
+                                <ui:Hyperlink.Background>
+                                    <SolidColorBrush Color="White" Opacity="0.8"/>
+                                </ui:Hyperlink.Background>
+                            </ui:Hyperlink>
+                        </ui:CardControl>
+                    </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>

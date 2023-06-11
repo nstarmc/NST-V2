@@ -5,10 +5,14 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>NST_V2</RootNamespace>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <PackageIcon>logo2.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\Alimama_DongFangDaKai_Regular.ttf" />
+    <None Remove="Resources\bg.png" />
+    <None Remove="Resources\logo2.png" />
     <None Remove="Resources\logo3.png" />
     <None Remove="Resources\Navview\banben.png" />
     <None Remove="Resources\Navview\bangzhu.png" />
@@ -17,6 +21,10 @@
     <None Remove="Resources\Navview\shezhi.png" />
     <None Remove="Resources\Navview\shouye.png" />
     <None Remove="Resources\Navview\yunxiazai.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="favicon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,12 +40,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="D:\Minecraft\logo\logo2.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="HandyControl" Version="3.4.0" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\Alimama_DongFangDaKai_Regular.ttf" />
+    <Resource Include="Resources\bg.png" />
+    <Resource Include="Resources\logo2.png" />
     <Resource Include="Resources\logo3.png" />
     <Resource Include="Resources\Navview\banben.png" />
     <Resource Include="Resources\Navview\bangzhu.png" />

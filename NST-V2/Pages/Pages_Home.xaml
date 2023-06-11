@@ -37,7 +37,7 @@
         </Grid>
         <Grid Grid.Column="1" Margin="6,6,6,0">
             <StackPanel>
-                <ui:Card>
+                <ui:Card Cursor="">
                     <ui:Card.Background>
                         <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
                     </ui:Card.Background>
