@@ -7,7 +7,7 @@
         xmlns:pages="clr-namespace:NST_V2"
         mc:Ignorable="d" Style="{StaticResource UiWindow}"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        Title="NSTARMC Tools" Height="600" Width="1200" WindowStyle="None" Icon="/Resources/logo2.png">
+        Title="NSTARMC Tools" Height="600" Width="1200" WindowStyle="None" Icon="/Resources/logo2.png" Initialized="Window_Initialized">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/bg.png"/>
     </Window.Background>

@@ -5,9 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NST_V2"
       mc:Ignorable="d" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Pages_Download">
     <Grid>
-        
+        <StackPanel>
+            <TabControl Style="{StaticResource TabControlCapsuleSolid}" Padding="0,0,0,0">
+                <TabItem Header="下载整合包"></TabItem>
+                <TabItem Header="更新整合包"></TabItem>
+                <TabItem Header="升级整合包"></TabItem>
+            </TabControl>
+        </StackPanel>
     </Grid>
 </Page>

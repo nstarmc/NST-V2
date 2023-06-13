@@ -2,12 +2,34 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
       xmlns:local="clr-namespace:NST_V2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Pages_Help">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ui:CardControl Grid.Row="0">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="以下为NSC文档站点，若下面空白，则是因为你没有安装Webview2环境！" TextWrapping="Wrap" FontSize="16" FontWeight="Bold" Padding="0,0,0,3"/>
+                        <TextBlock Text="若文档无法解决问题，欢迎加入QQ频道询问！" TextWrapping="Wrap" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <StackPanel Orientation="Horizontal">
+                    <ui:Hyperlink Content="浏览器打开" Margin="0,0,3,0"/>
+                    <ui:Hyperlink Content="QQ群" Margin="0,3,0,0"/>
+                    <ui:Hyperlink Content="QQ频道"/>
+                </StackPanel>
+                
+            </ui:CardControl>
+            <wv2:WebView2 Source="https://www.nstarmc.cn" Grid.Row="1"/>
+        </Grid>
     </Grid>
 </Page>

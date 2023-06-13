@@ -1,0 +1,8 @@
+{
+  "MCVersion": "1.20.1",
+  "ModLoader": "Fabric",
+  "ShaderLoader": "Sodium+Iris",
+  "PackID": 101201,
+  "ReleaseTimespan": 1686639686,
+  "JavaVersion": 17
+}

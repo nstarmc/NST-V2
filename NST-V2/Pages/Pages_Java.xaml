@@ -4,10 +4,43 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NST_V2"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Pages_Java">
     <Grid>
-        
+        <StackPanel>
+            <Image Source="/Resources/logo3.png" Width="256"/>
+            <ui:CardControl Margin="6,6,6,0">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="选择你需要安装Java环境的MC版本" FontSize="16" FontWeight="Bold" TextWrapping="Wrap" Margin="0,0,0,3"/>
+                        <TextBlock Text="Java环境将自动安装在整合包目录下&#13;启动器可以自动识别NST所安装的Java环境！" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ComboBox>
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0.5"/>
+                    </ComboBox.Background>
+                </ComboBox>
+            </ui:CardControl>
+            <ui:CardControl Margin="6,6,6,0">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="当前选择的MC版本适配的Java版本是：" FontSize="16" FontWeight="Bold" Margin="0,0,0,3" TextWrapping="Wrap"/>
+                        <TextBlock Text="JavaX"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <Button Content="开始下载" Style="{StaticResource ButtonPrimary}"/>
+            </ui:CardControl>
+            <ui:Card Margin="6,6,6,0">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="正在为您安装Java环境到整合包···" FontSize="16" FontWeight="Bold" Margin="0,0,0,3"/>
+                    <TextBlock TextWrapping="Wrap" Text="进度显示···" Margin="0,0,0,3"/>
+                    <ProgressBar Value="50"/>
+                </StackPanel>
+            </ui:Card>
+        </StackPanel>
     </Grid>
 </Page>
