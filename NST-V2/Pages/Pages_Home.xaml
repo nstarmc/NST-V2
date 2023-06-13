@@ -7,7 +7,7 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Pages_Home">
+      Title="Pages_Home" Initialized="Page_Initialized" Loaded="Page_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -49,7 +49,7 @@
                     </ui:Card.Background>
                     <StackPanel>
                         <TextBlock Text="选择版本：" Margin="0,0,0,5" FontWeight="Bold" FontSize="16"/>
-                        <ComboBox Margin="0,0,0,6">
+                        <ComboBox Margin="0,0,0,6" x:Name="mclist">
                             <ComboBox.Background>
                                 <SolidColorBrush Color="White" Opacity="0.5"/>
                             </ComboBox.Background>
@@ -61,7 +61,7 @@
                             <GroupBox.Header>
                                 <TextBlock Text="当前版本信息"  FontWeight="Bold" FontSize="16"/>
                             </GroupBox.Header>
-                            <TextBlock Text="版本详细信息" HorizontalAlignment="Center"/>
+                            <TextBlock Text="版本详细信息" HorizontalAlignment="Center" x:Name="mcinfo"/>
                         </GroupBox>
                     </StackPanel>
                 </ui:Card>
@@ -71,7 +71,7 @@
                     </ui:Card.Background>
                     <StackPanel>
                         <TextBlock Text="选择启动器：" Margin="0,0,0,5" FontWeight="Bold" FontSize="16"/>
-                        <ComboBox Margin="0,0,0,6">
+                        <ComboBox Margin="0,0,0,6" x:Name="mclacuncher">
                             <ComboBox.Background>
                                 <SolidColorBrush Color="White" Opacity="0.5"/>
                             </ComboBox.Background>

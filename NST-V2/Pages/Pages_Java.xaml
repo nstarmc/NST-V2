@@ -8,7 +8,7 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Pages_Java">
+      Title="Pages_Java" Initialized="Page_Initialized">
     <Grid>
         <StackPanel>
             <Image Source="/Resources/logo3.png" Width="256"/>
@@ -19,7 +19,7 @@
                         <TextBlock Text="Java环境将自动安装在整合包目录下&#13;启动器可以自动识别NST所安装的Java环境！" TextWrapping="Wrap"/>
                     </StackPanel>
                 </ui:CardControl.Header>
-                <ComboBox>
+                <ComboBox x:Name="mclist">
                     <ComboBox.Background>
                         <SolidColorBrush Color="White" Opacity="0.5"/>
                     </ComboBox.Background>
