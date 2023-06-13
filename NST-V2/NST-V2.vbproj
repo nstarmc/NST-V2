@@ -42,10 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="IncrementBuildVersion.proj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="HandyControl" Version="3.4.0" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
