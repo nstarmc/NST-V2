@@ -37,11 +37,50 @@
         </Grid>
         <Grid Grid.Column="1" Margin="6,6,6,0">
             <StackPanel>
-                <ui:Card Cursor="">
+                <ui:Card Cursor="" Margin="0,0,0,6">
                     <ui:Card.Background>
                         <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
                     </ui:Card.Background>
                     <Image Source="/Resources/logo3.png" Width="256"/>
+                </ui:Card>
+                <ui:Card Cursor="">
+                    <ui:Card.Background>
+                        <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
+                    </ui:Card.Background>
+                    <StackPanel>
+                        <TextBlock Text="选择版本：" Margin="0,0,0,5" FontWeight="Bold" FontSize="16"/>
+                        <ComboBox Margin="0,0,0,6">
+                            <ComboBox.Background>
+                                <SolidColorBrush Color="White" Opacity="0.5"/>
+                            </ComboBox.Background>
+                        </ComboBox>
+                        <GroupBox Style="{StaticResource GroupBoxTab}">
+                            <GroupBox.Background>
+                                <SolidColorBrush Color="#FFEEEEEE" Opacity="0.5"/>
+                            </GroupBox.Background>
+                            <GroupBox.Header>
+                                <TextBlock Text="当前版本信息"  FontWeight="Bold" FontSize="16"/>
+                            </GroupBox.Header>
+                            <TextBlock Text="版本详细信息" HorizontalAlignment="Center"/>
+                        </GroupBox>
+                    </StackPanel>
+                </ui:Card>
+                <ui:Card Cursor="">
+                    <ui:Card.Background>
+                        <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
+                    </ui:Card.Background>
+                    <StackPanel>
+                        <TextBlock Text="选择启动器：" Margin="0,0,0,5" FontWeight="Bold" FontSize="16"/>
+                        <ComboBox Margin="0,0,0,6">
+                            <ComboBox.Background>
+                                <SolidColorBrush Color="White" Opacity="0.5"/>
+                            </ComboBox.Background>
+                        </ComboBox>
+
+                            <Button Content="启动游戏" Style="{StaticResource ButtonPrimary}" HorizontalAlignment="Stretch"/>
+
+                        
+                    </StackPanel>
                 </ui:Card>
             </StackPanel>
         </Grid>

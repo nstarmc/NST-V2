@@ -1,3 +1,4 @@
+Imports System.Reflection
 Imports System.Windows
 
 'The ThemeInfo attribute describes where any theme specific and generic resource dictionaries can be found.

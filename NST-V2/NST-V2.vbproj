@@ -4,9 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>NST_V2</RootNamespace>
+	<SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <PackageIcon>logo2.png</PackageIcon>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,6 +46,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Include="IncrementBuildVersion.proj" />
   </ItemGroup>
 
   <ItemGroup>
