@@ -20,7 +20,7 @@
                         <SolidColorBrush Color="#B3FFFFFF" Opacity="0.485"/>
                     </ui:Card.Background>
                     <StackPanel>
-                        <TextBlock Text="草木扎根于无垠之中，叶梢朝向繁星生长。" TextWrapping="Wrap"  FontSize="20"  Margin="0,0,0,0" FontFamily="{StaticResource ali}"/>
+                        <TextBlock Text="一言加载中···" TextWrapping="Wrap"  FontSize="20"  Margin="0,0,0,0" FontFamily="{StaticResource ali}" x:Name="text_onesay"/>
                     </StackPanel>
                 </ui:Card>
                 <ui:Card Margin="6,6,6,0">
@@ -29,7 +29,16 @@
                     </ui:Card.Background>
                     <StackPanel>
                         <TextBlock Text="公告" FontSize="20" FontWeight="Bold" Margin="0,0,0,6"/>
-                        <TextBlock Text="正在获取公告内容······"/>
+                        <TextBlock Text="正在获取公告内容······" x:Name="text_notice"/>
+                    </StackPanel>
+                </ui:Card>
+                <ui:Card Margin="6,6,6,0">
+                    <ui:Card.Background>
+                        <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
+                    </ui:Card.Background>
+                    <StackPanel>
+                        <TextBlock Text="Minecraft最新版本信息" FontSize="20" FontWeight="Bold" Margin="0,0,0,6"/>
+                        <TextBlock Text="正在获取Minecraft版本信息" x:Name="text_mcv"/>
                     </StackPanel>
                 </ui:Card>
 
@@ -59,9 +68,9 @@
                                 <SolidColorBrush Color="#FFEEEEEE" Opacity="0.5"/>
                             </GroupBox.Background>
                             <GroupBox.Header>
-                                <TextBlock Text="当前版本信息"  FontWeight="Bold" FontSize="16"/>
+                                <TextBlock Text="当前版本信息"  FontWeight="Bold" FontSize="16" HorizontalAlignment="Left"/>
                             </GroupBox.Header>
-                            <TextBlock Text="版本详细信息" HorizontalAlignment="Center" x:Name="mcinfo"/>
+                            <TextBlock Text="版本详细信息"  x:Name="mcinfo" TextWrapping="Wrap" HorizontalAlignment="Center" />
                         </GroupBox>
                     </StackPanel>
                 </ui:Card>
@@ -77,7 +86,7 @@
                             </ComboBox.Background>
                         </ComboBox>
 
-                            <Button Content="启动游戏" Style="{StaticResource ButtonPrimary}" HorizontalAlignment="Stretch"/>
+                            <Button Content="启动游戏" Style="{StaticResource ButtonPrimary}" HorizontalAlignment="Stretch" Click="Button_Click"/>
 
                         
                     </StackPanel>

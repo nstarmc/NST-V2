@@ -7,11 +7,53 @@
       mc:Ignorable="d" 
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Pages_Download">
+      Title="Pages_Download" Initialized="Page_Initialized">
     <Grid>
         <StackPanel>
-            <TabControl Style="{StaticResource TabControlCapsuleSolid}" Padding="0,0,0,0">
-                <TabItem Header="下载整合包"></TabItem>
+            <TabControl Style="{StaticResource TabControlCapsuleSolid}" Padding="0,0,0,0" Background="{x:Null}" BorderThickness="0,0,0,0" Margin="0,6,0,0">
+                <TabItem Header="下载整合包">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <ui:Card Margin="6,6,6,0">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                        <TextBlock Text="选择整合包类别：" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                                        <ComboBox VerticalAlignment="Center" x:Name="dw_category"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="选择整合包版本：" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                                        <ComboBox VerticalAlignment="Center" x:Name="dw_ver"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ui:Card>
+                            <ui:Card Margin="6,6,6,0">
+                                <StackPanel>
+                                    <TextBlock Text="整合包更新历史记录:" FontWeight="Bold" FontSize="16" Margin="0,0,0,3" />
+                                    <TextBlock Text="未检索到任何更新记录！"/>
+                                </StackPanel>
+                            </ui:Card>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <ui:Card Cursor="" Margin="6,6,6,0">
+                                <ui:Card.Background>
+                                    <SolidColorBrush Color="#B3FFFFFF" Opacity="0.5"/>
+                                </ui:Card.Background>
+                                <Image Source="/Resources/logo3.png" Width="256"/>
+                            </ui:Card>
+                            <ui:Card Margin="6,6,6,0">
+                                <StackPanel>
+                                    <Button Content="开始下载" Style="{StaticResource ButtonPrimary}" Margin="0,0,0,3" HorizontalAlignment="Stretch" Click="Button_Click"/>
+                                    <TextBlock Text="下载未开始···" HorizontalAlignment="Center" Margin="0,0,0,3"/>
+                                    <ProgressBar MinWidth="200"/>
+                                </StackPanel>
+                            </ui:Card>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
                 <TabItem Header="更新整合包"></TabItem>
                 <TabItem Header="升级整合包"></TabItem>
             </TabControl>

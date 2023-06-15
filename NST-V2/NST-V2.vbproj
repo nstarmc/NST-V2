@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\2023-06-15_12.52.47.png" />
     <None Remove="Resources\Alimama_DongFangDaKai_Regular.ttf" />
     <None Remove="Resources\bg.png" />
     <None Remove="Resources\logo2.png" />
@@ -42,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Downloader" Version="3.0.6" />
     <PackageReference Include="HandyControl" Version="3.4.0" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -49,6 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\2023-06-15_12.52.47.png" />
     <Resource Include="Resources\Alimama_DongFangDaKai_Regular.ttf" />
     <Resource Include="Resources\bg.png" />
     <Resource Include="Resources\logo2.png" />

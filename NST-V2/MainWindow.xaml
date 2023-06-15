@@ -9,7 +9,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         Title="NSTARMC Tools" Height="600" Width="1200" WindowStyle="None" Icon="/Resources/logo2.png" Initialized="Window_Initialized">
     <Window.Background>
-        <ImageBrush ImageSource="/Resources/bg.png"/>
+        <ImageBrush ImageSource="/Resources/2023-06-15_12.52.47.png"/>
     </Window.Background>
     <Grid>
 

@@ -12,6 +12,9 @@
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type TextBlock }">
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
             <FontFamily x:Key="ali">pack://application:,,,/Resources/Alimama_DongFangDaKai_Regular.ttf#阿里妈妈东方大楷</FontFamily>
             <FontFamily x:Key="iconfont">pack://application:,,,/Resources/iconfont.ttf#iconfont</FontFamily>
         </ResourceDictionary>
