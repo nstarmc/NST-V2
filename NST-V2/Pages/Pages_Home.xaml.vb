@@ -79,6 +79,7 @@ Class Pages_Home
         Else
             Growl.Error("无法连接到NST-V2服务器，联网功能将无法使用！")
             text_notice.Dispatcher.Invoke(New Action(Sub()
+                                                         text_onesay.Text = "草木扎根于无垠之中，叶梢朝向繁星生长。"
                                                          text_notice.Text = "欢迎使用NST-V2！"
                                                      End Sub))
         End If

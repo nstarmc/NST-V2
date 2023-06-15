@@ -46,9 +46,9 @@
                             </ui:Card>
                             <ui:Card Margin="6,6,6,0">
                                 <StackPanel>
-                                    <Button Content="开始下载" Style="{StaticResource ButtonPrimary}" Margin="0,0,0,3" HorizontalAlignment="Stretch" Click="Button_Click"/>
-                                    <TextBlock Text="下载未开始···" HorizontalAlignment="Center" Margin="0,0,0,3"/>
-                                    <ProgressBar MinWidth="200"/>
+                                    <Button Content="开始下载" Style="{StaticResource ButtonPrimary}" Margin="0,0,0,3" HorizontalAlignment="Stretch" Click="Button_Click" x:Name="bt_dl"/>
+                                    <TextBlock Text="下载未开始···" HorizontalAlignment="Center" Margin="0,0,0,3" x:Name="text_dwinfo"/>
+                                    <ProgressBar MinWidth="200" x:Name="pg_dw"/>
                                 </StackPanel>
                             </ui:Card>
                         </StackPanel>
