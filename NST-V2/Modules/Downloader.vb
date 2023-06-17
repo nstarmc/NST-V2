@@ -5,11 +5,11 @@ Module Downloader
     Function downloader_config_read() As DownloadConfiguration
         Dim downloadOpt = New DownloadConfiguration()
         downloadOpt.BufferBlockSize = 10240 '文件缓冲区大小
-        downloadOpt.ChunkCount = 8 '下载线程数量
-        downloadOpt.MinimumSizeOfChunking = 16
+        downloadOpt.ChunkCount = 16 '下载线程数量
+        downloadOpt.MinimumSizeOfChunking = 32
         'downloadOpt.ChunkCount = Data("download")("thr") '下载线程数量
         downloadOpt.MaximumBytesPerSecond = 0 '下载限速
-        downloadOpt.Timeout = 1000 '超时
+        downloadOpt.Timeout = 5000 '超时
         downloadOpt.MaxTryAgainOnFailover = Integer.MaxValue
         If downloadOpt.ChunkCount = 1 Then
             downloadOpt.ParallelDownload = False

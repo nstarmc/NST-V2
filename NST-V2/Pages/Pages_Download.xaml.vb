@@ -91,6 +91,7 @@ Class Pages_Download
         Public packid As String
         Public url As String
         Public allow As Boolean
+        Public rootpath As String
     End Class
 
 

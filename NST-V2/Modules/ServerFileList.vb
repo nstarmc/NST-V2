@@ -14,4 +14,7 @@
     Function get_json_nstarmcpacks()
         Return get_server_domain_https() & "/packs/nstarmc.json"
     End Function
+    Function get_json_javas()
+        Return get_server_domain_https() & "/java.json"
+    End Function
 End Module

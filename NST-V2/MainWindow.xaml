@@ -7,7 +7,7 @@
         xmlns:controls="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d" Style="{StaticResource UiWindow}"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        Title="NSTARMC Tools" Height="600" Width="1200" WindowStyle="None" Icon="/Resources/logo2.png" Initialized="Window_Initialized">
+        Title="NSTARMC Tools" Height="600" Width="1200" WindowStyle="None" Icon="/Resources/logo2.png" Initialized="Window_Initialized" Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/2023-06-15_12.52.47.png"/>
     </Window.Background>
@@ -18,7 +18,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <ui:TitleBar Title="NSTARMC整合包工具" Grid.Row="0" FontFamily="{StaticResource ali}" FontSize="16" Icon="/Resources/logo2.png">
+            <ui:TitleBar Title="NSTARMC整合包工具" Grid.Row="0" FontFamily="{StaticResource ali}" FontSize="18" Icon="/Resources/logo2.png">
                 <ui:TitleBar.Background>
                     <SolidColorBrush Color="White" Opacity="0.6"/>
                 </ui:TitleBar.Background>
@@ -34,15 +34,44 @@
                     </Grid.Background>
                     <ui:NavigationCompact x:Name="RootNavigation" MaxWidth="180" IsExpanded="True"   Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0" SnapsToDevicePixels="True" >
                         <ui:NavigationCompact.Items>
-                            <ui:NavigationItem Content="首页"  PageType="{x:Type local:Pages_Home}" Image="/Resources/Navview/shouye.png"/>
-                            <ui:NavigationItem Content="Java下载"  PageType="{x:Type local:Pages_Java}" Image="/Resources/Navview/java.png"/>
-                            <ui:NavigationItem Content="版本管理"   PageType="{x:Type local:Pages_Manage}" Image="/Resources/Navview/banben.png"/>
-                            <ui:NavigationItem Content="下载/更新整合包"    PageType="{x:Type local:Pages_Download}" Image="/Resources/Navview/yunxiazai.png"/>
-                            <ui:NavigationItem Content="帮助"    PageType="{x:Type local:Pages_Help}" Image="/Resources/Navview/bangzhu.png" Cursor="Hand"/>
+                            <ui:NavigationItem   PageType="{x:Type local:Pages_Home}" Image="/Resources/Navview/shouye.png" PageTag="home" >
+                                <ui:NavigationItem.Content>
+                                    <TextBlock Text="首页" FontSize="16" FontFamily="{StaticResource ali}"/>
+                                </ui:NavigationItem.Content>
+                            </ui:NavigationItem>
+                            <ui:NavigationItem   PageType="{x:Type local:Pages_Java}" Image="/Resources/Navview/java.png" PageTag="dljava" >
+                                <ui:NavigationItem.Content>
+                                    <TextBlock Text="Java下载" FontSize="16" FontFamily="{StaticResource ali}"/>
+                                </ui:NavigationItem.Content>
+                            </ui:NavigationItem>
+                            <ui:NavigationItem   PageType="{x:Type local:Pages_Manage}" PageTag="manage"  Image="/Resources/Navview/banben.png">
+                                <ui:NavigationItem.Content>
+                                    <TextBlock Text="版本管理" FontSize="16" FontFamily="{StaticResource ali}"/>
+                                </ui:NavigationItem.Content>
+                            </ui:NavigationItem>
+                            <ui:NavigationItem    PageType="{x:Type local:Pages_Download}" PageTag="dlpack"  Image="/Resources/Navview/yunxiazai.png">
+                                <ui:NavigationItem.Content>
+                                    <TextBlock Text="下载/更新整合包" FontSize="16"  FontFamily="{StaticResource ali}"/>
+                                </ui:NavigationItem.Content>
+                            </ui:NavigationItem>
+                            <ui:NavigationItem  PageTag="help"   PageType="{x:Type local:Pages_Help}" Image="/Resources/Navview/bangzhu.png" >
+                                <ui:NavigationItem.Content>
+                                    <TextBlock Text="帮助" FontSize="16" FontFamily="{StaticResource ali}"/>
+                                </ui:NavigationItem.Content>
+                            </ui:NavigationItem>
                         </ui:NavigationCompact.Items>
                         <ui:NavigationCompact.Footer>
-                            <ui:NavigationItem  Content="设置"   Image="/Resources/Navview/shezhi.png" PageType="{x:Type local:Pages_Setting}"/>
-                            <ui:NavigationItem Content="关于"   Image="/Resources/Navview/guanyu.png" PageType="{x:Type local:Pages_About}"/>
+                            <ui:NavigationItem PageTag="set"  Image="/Resources/Navview/shezhi.png" PageType="{x:Type local:Pages_Setting}">
+                                <ui:NavigationItem.Content>
+                                    <TextBlock Text="设置" FontSize="16" FontFamily="{StaticResource ali}"/>
+                                </ui:NavigationItem.Content>
+                            </ui:NavigationItem>
+                            <ui:NavigationItem Content="更新"  PageTag="upd"   PageType="{x:Type local:Pages_Update}" Image="/Resources/Navview/upd.png" Visibility="Collapsed"/>
+                            <ui:NavigationItem PageTag="about"   Image="/Resources/Navview/guanyu.png" PageType="{x:Type local:Pages_About}">
+                            <ui:NavigationItem.Content>
+                                    <TextBlock Text="关于"  FontSize="16" FontFamily="{StaticResource ali}"/>
+                                </ui:NavigationItem.Content>
+                            </ui:NavigationItem>
                         </ui:NavigationCompact.Footer>
                     </ui:NavigationCompact>
                 </Grid>
@@ -52,7 +81,7 @@
             </Grid>
 
         </Grid>
-        <TextBlock Text="Alpha早期测试版本" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Opacity="0.6"/>
+        <TextBlock x:Name="bqinfo" Text="版本" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Opacity="0.9" Foreground="White" FontFamily="{StaticResource ali}" FontSize="14"/>
 
             <StackPanel controls:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10" HorizontalAlignment="Right"/>
 

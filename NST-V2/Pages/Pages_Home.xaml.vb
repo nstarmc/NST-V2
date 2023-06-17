@@ -6,6 +6,7 @@ Imports Newtonsoft.Json.Linq
 Imports Wpf.Ui.Controls
 
 Class Pages_Home
+    Dim checkupd As Boolean
     Private Sub Page_Initialized(sender As Object, e As EventArgs)
         '页面初始化
         Dim thr1 As New Thread(AddressOf initialize_thr)
@@ -49,7 +50,6 @@ Class Pages_Home
         If isAccessible Then
             Dim json As JObject = json_main()
             Growl.Success("您与NST-V2服务器连接正常！")
-
             text_notice.Dispatcher.Invoke(New Action(Sub()
                                                          text_notice.Text = json("Notice").ToString
                                                      End Sub))
@@ -132,6 +132,29 @@ Class Pages_Home
     End Sub
 
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
+        Dim thr1 As New Thread(AddressOf check_upd_thr)
+        thr1.Start()
+
+    End Sub
+
+    Private Sub check_upd_thr(obj As Object)
+        '检查更新
+        Dim isAccessible As Boolean = TestWebsiteAccessibility(get_server_domain_https() & "/test.txt")
+        If isAccessible Then
+            Dim json As JObject = json_main()
+            If Application.ResourceAssembly.GetName().Version.ToString() < json_main("Version").ToString Then
+                text_mcv.Dispatcher.Invoke(New Action(Sub()
+                                                          Growl.Info("发现新版本：" & json_main("Version").ToString)
+                                                          ' 获取主窗体的实例
+                                                          Dim mainWindow As MainWindow = DirectCast(Application.Current.MainWindow, MainWindow)
+                                                          ' 触发主窗体的事件
+                                                          If mainWindow IsNot Nothing Then
+                                                              mainWindow.updEvent()
+                                                          End If
+                                                      End Sub))
+
+            End If
+        End If
 
     End Sub
 

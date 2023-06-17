@@ -32,6 +32,22 @@ Module JsonReader
         End Try
     End Function
 
+    'java.json
+    Function json_java()
+        Try
+            Dim request As HttpWebRequest = WebRequest.Create(get_json_javas())
+            request.Method = "GET"
+            Dim sr As StreamReader = New StreamReader(request.GetResponse().GetResponseStream)
+            Dim jsonback = sr.ReadToEnd '储存返回的json信息
+            '处理json
+            Dim json As JObject = CType(JsonConvert.DeserializeObject(jsonback), JObject)
+            log_record("Json-Reader Module", "获取json信息成功：" & get_json_javas().ToString)
+            Return json
+        Catch ex As Exception
+            log_record("Json-Reader Module", "获取json信息失败：" & get_json_javas().ToString & vbCrLf & ex.ToString)
+        End Try
+    End Function
+
     'packs/nstarmc.json
     Function json_packs_nstarmc()
         Try

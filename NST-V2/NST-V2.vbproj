@@ -9,6 +9,8 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <PackageIcon>logo2.png</PackageIcon>
     <Platforms>AnyCPU;x64</Platforms>
+    <FileVersion>1.0.0.2</FileVersion>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +25,7 @@
     <None Remove="Resources\Navview\java.png" />
     <None Remove="Resources\Navview\shezhi.png" />
     <None Remove="Resources\Navview\shouye.png" />
+    <None Remove="Resources\Navview\upd.png" />
     <None Remove="Resources\Navview\yunxiazai.png" />
   </ItemGroup>
 
@@ -63,6 +66,7 @@
     <Resource Include="Resources\Navview\java.png" />
     <Resource Include="Resources\Navview\shezhi.png" />
     <Resource Include="Resources\Navview\shouye.png" />
+    <Resource Include="Resources\Navview\upd.png" />
     <Resource Include="Resources\Navview\yunxiazai.png" />
   </ItemGroup>
 

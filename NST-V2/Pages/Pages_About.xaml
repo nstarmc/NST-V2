@@ -12,6 +12,11 @@
     <Grid>
         <TabControl Margin="10" Style="{StaticResource TabControlCapsuleSolid}" Background="{x:Null}" BorderThickness="0,0,0,0">
             <TabItem Header="版本信息">
+                <StackPanel>
+                    <ui:Card Margin="6,6,6,0">
+                        
+                    </ui:Card>
+                </StackPanel>
             </TabItem>
             <TabItem Header="开发人员">
             </TabItem>

@@ -29,16 +29,16 @@
                 <ui:CardControl.Header>
                     <StackPanel>
                         <TextBlock Text="当前选择的MC版本适配的Java版本是：" FontSize="16" FontWeight="Bold" Margin="0,0,0,3" TextWrapping="Wrap"/>
-                        <TextBlock Text="JavaX"/>
+                        <TextBlock Text="没有选中的整合包版本······" x:Name="java_info"/>
                     </StackPanel>
                 </ui:CardControl.Header>
-                <Button Content="开始下载" Style="{StaticResource ButtonPrimary}"/>
+                <Button Content="开始下载" Style="{StaticResource ButtonPrimary}" Click="Button_Click" x:Name="bt_on"/>
             </ui:CardControl>
             <ui:Card Margin="6,6,6,0">
                 <StackPanel>
                     <TextBlock TextWrapping="Wrap" Text="正在为您安装Java环境到整合包···" FontSize="16" FontWeight="Bold" Margin="0,0,0,3"/>
-                    <TextBlock TextWrapping="Wrap" Text="进度显示···" Margin="0,0,0,3"/>
-                    <ProgressBar Value="50"/>
+                    <TextBlock TextWrapping="Wrap" Text="下载未开始······" Margin="0,0,0,3" x:Name="text_dwinfo"/>
+                    <ProgressBar Value="0" x:Name="pg_dw"/>
                 </StackPanel>
             </ui:Card>
         </StackPanel>
