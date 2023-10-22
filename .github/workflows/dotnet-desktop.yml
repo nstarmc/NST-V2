@@ -36,7 +36,7 @@
 # For a complete CI/CD sample to get started with GitHub Action workflows for Desktop Applications,
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 
-name: .NET Core Desktop
+name: 构建x64 NST-V2单文件应用
 
 on:
   push:
@@ -50,44 +50,38 @@ jobs:
 
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Release]
 
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
-    env:
-      Solution_Name: your-solution-name                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-
+               
     steps:
-    - name: Checkout
+    - name: 签出
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
     # Install the .NET Core workload
-    - name: Install .NET Core
+    - name: 设置.NET Core 6.0环境
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
+    - name: 设置MSBuild环境
       uses: microsoft/setup-msbuild@v1.0.2
 
     # Execute all unit tests in the solution
-    - name: Execute unit tests
+    - name: 单元测试
       run: dotnet test
 
     # Remove the pfx
-    - name: Build
+    - name: 构建
       run: dotnet publish -r win-x64 -c release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
-    - name: Upload build artifacts
+    - name: 上传构建
       uses: actions/upload-artifact@v3
       with:
-        name: Exe
-        path: ${{ env.Wap_Project_Directory }}\bin\Release\net6.0-windows\win-x64\publish
+        name: NST-V2
+        path: NST-V2\bin\Release\net6.0-windows\win-x64\publish
