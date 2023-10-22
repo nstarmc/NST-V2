@@ -19,11 +19,14 @@
                         <TextBlock Text="Java环境将自动安装在整合包目录下&#13;启动器可以自动识别NST所安装的Java环境！" TextWrapping="Wrap"/>
                     </StackPanel>
                 </ui:CardControl.Header>
-                <ComboBox x:Name="mclist">
-                    <ComboBox.Background>
-                        <SolidColorBrush Color="White" Opacity="0.5"/>
-                    </ComboBox.Background>
-                </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="刷新" Style="{StaticResource ButtonPrimary}" Margin="0,0,3,0" Click="Button_Click_1"/>
+                    <ComboBox x:Name="mclist">
+                        <ComboBox.Background>
+                            <SolidColorBrush Color="White" Opacity="0.5"/>
+                        </ComboBox.Background>
+                    </ComboBox>
+                </StackPanel>
             </ui:CardControl>
             <ui:CardControl Margin="6,6,6,0">
                 <ui:CardControl.Header>

@@ -9,8 +9,8 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <PackageIcon>logo2.png</PackageIcon>
     <Platforms>AnyCPU;x64</Platforms>
-    <FileVersion>1.0.0.2</FileVersion>
-    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +21,7 @@
     <None Remove="Resources\logo3.png" />
     <None Remove="Resources\Navview\banben.png" />
     <None Remove="Resources\Navview\bangzhu.png" />
+    <None Remove="Resources\Navview\dabao.png" />
     <None Remove="Resources\Navview\guanyu.png" />
     <None Remove="Resources\Navview\java.png" />
     <None Remove="Resources\Navview\shezhi.png" />
@@ -51,6 +52,7 @@
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
@@ -62,6 +64,7 @@
     <Resource Include="Resources\logo3.png" />
     <Resource Include="Resources\Navview\banben.png" />
     <Resource Include="Resources\Navview\bangzhu.png" />
+    <Resource Include="Resources\Navview\dabao.png" />
     <Resource Include="Resources\Navview\guanyu.png" />
     <Resource Include="Resources\Navview\java.png" />
     <Resource Include="Resources\Navview\shezhi.png" />

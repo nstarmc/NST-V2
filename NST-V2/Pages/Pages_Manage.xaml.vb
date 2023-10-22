@@ -42,4 +42,9 @@ Class Pages_Manage
 
         End If
     End Sub
+
+    Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        Dim thr1 As New Thread(AddressOf initialize_thr)
+        thr1.Start()
+    End Sub
 End Class

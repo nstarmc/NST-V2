@@ -19,11 +19,14 @@
                         <TextBlock Text="选择你想要操作的版本"/>
                     </StackPanel>
                 </ui:CardControl.Header>
-                <ComboBox x:Name="mclist">
-                    <ComboBox.Background>
-                        <SolidColorBrush Color="White" Opacity="0.5"/>
-                    </ComboBox.Background>
-                </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="刷新" Style="{StaticResource ButtonPrimary}" Margin="0,0,3,0" Click="Button_Click"/>
+                    <ComboBox x:Name="mclist">
+                        <ComboBox.Background>
+                            <SolidColorBrush Color="White" Opacity="0.5"/>
+                        </ComboBox.Background>
+                    </ComboBox>
+                </StackPanel>
             </ui:CardControl>
             <TabControl Margin="6,6,6,6" TabStripPlacement="Bottom" Style="{StaticResource TabControlCapsuleSolid}" Padding="0,0,0,0">
                 <TabControl.Background>

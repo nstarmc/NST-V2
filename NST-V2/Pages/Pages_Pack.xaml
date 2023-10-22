@@ -1,0 +1,126 @@
+﻿<Page x:Class="Pages_Pack"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NST_V2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" xmlns:hc="https://handyorg.github.io/handycontrol"
+      Title="Pages_Pack">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ui:Card Margin="6,6,6,0">
+                <StackPanel>
+                <TextBlock Text="整合包打包工具" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Margin="0,0,0,3"/>
+                    <TextBlock Text="清理MC杂余文件，并打包成NST-V2支持的格式，并安装NST-V2进入整合包" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,0,0,2"/>
+                    <TextBlock Text="（其实是给我自己用的，懒得多做一个UI了）（不支持开启版本隔离的文件模式）" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </ui:Card>
+        </Grid>
+    <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+                <StackPanel>
+                    <ui:Card Margin="6,6,6,0">
+                        <StackPanel>
+                        <TextBlock Text="整合包位置" Margin="0,0,0,6"  FontSize="18" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="游戏路径：" VerticalAlignment="Center"/>
+                                <TextBox Text="" MinWidth="100" Name="pathGame"/>
+                                <Button Content="浏览" Margin="3,0,0,0" Click="Button_Click"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                                <TextBlock Text="压缩包输出位置：" VerticalAlignment="Center"/>
+                                <TextBox Text="" MinWidth="100" Name="pathOutput"/>
+                                <Button Content="浏览" Margin="3,0,0,0" Click="Button_Click_1"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ui:Card>
+                    <ui:Card Margin="6,6,6,0">
+                        <StackPanel>
+                            
+                            <TextBlock Text="清理选项(勾选=清理）" Margin="0,0,0,6"  FontSize="18" FontWeight="Bold"/>
+                            <WrapPanel Orientation="Horizontal" >
+                                <CheckBox Content="清理所有非必要文件" Margin="0,0,5,0" Foreground="Red" FontWeight="Bold" Name="checkAll" Visibility="Collapsed"/>
+                                <CheckBox Content="游戏配置文件" Margin="0,0,5,0" Name="checkGameConfig" IsChecked="False"/>
+                                <CheckBox Content="模组配置文件" Margin="0,0,5,0" Name="checkModConfig" IsChecked="False"/>
+                                <CheckBox Content="存档" Margin="0,0,5,3" Name="checkSaves" IsChecked="True"/>
+                            </WrapPanel>
+                            <TextBlock Text="清理所有非必要文件：即将游戏启动后出现的文件全部清理！" Foreground="#E4FF0000" FontWeight="Bold" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </ui:Card>
+                    <ui:Card Margin="6,6,6,0">
+                        <StackPanel>
+                        <TextBlock Text="整合包信息" Margin="0,0,0,6"  FontSize="18" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,3">
+                                <TextBlock Text="我的世界版本号：" VerticalAlignment="Center"/>
+                                <TextBox Text="1" Name="verMain"/>
+                                <TextBlock Text="." VerticalAlignment="Bottom" FontWeight="Bold" FontSize="18"/>
+                                <TextBox Text="" MinWidth="20" Name="verMedium"/>
+                                <TextBlock Text="." VerticalAlignment="Bottom" FontWeight="Bold" FontSize="18"/>
+                                <TextBox Text="" MinWidth="20" Name="verLast"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,3">
+                                <TextBlock Text="模组加载器：" VerticalAlignment="Center"/>
+                                <ComboBox Name="selMod">
+                                    <ComboBoxItem Content="Fabric" IsSelected="True"/>
+                                    <ComboBoxItem Content="NeoForge" />
+                                    <ComboBoxItem Content="Quilt" />
+                                    <ComboBoxItem Content="Liteloader" />
+                                    <ComboBoxItem Content="Forge" />
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="光影加载器：" VerticalAlignment="Center"/>
+                                <ComboBox Name="selShader">
+                                    <ComboBoxItem Content="Iris" IsSelected="True"/>
+                                    <ComboBoxItem Content="Oculus" />
+                                    <ComboBoxItem Content="Optifine" />
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </ui:Card>
+                    
+                </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+                <StackPanel>
+                    <ui:Card Margin="0,6,6,0">
+                        <StackPanel>
+                            <TextBlock Text="整合包ID遵循：" Margin="0,0,0,6"  FontSize="18" FontWeight="Bold"/>
+                            <WrapPanel Orientation="Vertical">
+                                <RadioButton Content="NSTARMC基础模组整合包" Margin="0,0,0,3" IsChecked="True" GroupName="packid" Name="packidNSTARMC"/>
+                                <WrapPanel> 
+                                    <RadioButton Content="自定义" HorizontalAlignment="Left" GroupName="packid" Name="packidCustom"/>
+                                    <TextBox MinWidth="50" Margin="5,0,0,0" Name="customID" InputMethod.IsInputMethodEnabled="False" />
+                                </WrapPanel>
+                            </WrapPanel>
+                            <TextBlock Text="自定义ID必须为10位数，且不得以1开头" Margin="0,2,0,0"/>
+                        </StackPanel>
+                    </ui:Card>
+                    <ui:Card Margin="0,6,6,6" VerticalAlignment="Top">
+                    <StackPanel>
+             
+                        <Button Content="开始打包" Style="{StaticResource ButtonPrimary}" HorizontalAlignment="Stretch" Click="Button_Click_2" Margin="0,0,0,2"/>
+
+                            <hc:LoadingLine x:Name="pgr" Visibility="Collapsed" Margin="0,3,0,0"/>
+
+                            <TextBlock x:Name="text_dwinfo" Margin="0,3,0,0"/>
+                            <ListBox Margin="0,3,0,0" Name="logBox">
+                                <ListBoxItem Content="准备就绪···" />
+                            </ListBox>
+                        </StackPanel>
+                </ui:Card>
+                </StackPanel>
+            </Grid>
+    </Grid>
+    </Grid>
+</Page>

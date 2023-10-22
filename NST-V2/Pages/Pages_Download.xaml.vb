@@ -8,6 +8,7 @@ Imports System.IO.Compression
 Imports ICSharpCode.SharpZipLib.Core
 Imports ICSharpCode.SharpZipLib.Zip
 Imports ZipFile = ICSharpCode.SharpZipLib.Zip.ZipFile
+Imports System.ComponentModel
 
 Class Pages_Download
     Dim dwi As New dwinfo
@@ -64,7 +65,7 @@ Class Pages_Download
             For Each category In packs_json("packs")
                 dw_category.Dispatcher.Invoke(New Action(Sub()
                                                              temp_json = lc_json(category)
-                                                             If dw_category.SelectedItem.ToString = temp_json("Category").ToString Then
+                                                             If dw_category.Text = temp_json("Category").ToString Then
                                                                  For Each category_ver In temp_json("Version")
                                                                      vertemp_json = lc_json(category_ver)
                                                                      dw_ver.Dispatcher.Invoke(New Action(Sub()
@@ -113,10 +114,10 @@ Class Pages_Download
 
                 dw_ver.Dispatcher.Invoke(New Action(Sub()
                                                         temp_json = lc_json(category)
-                                                        If dw_category.SelectedItem.ToString = temp_json("Category").ToString Then
+                                                        If dw_category.Text = temp_json("Category").ToString Then
                                                             For Each category_ver In temp_json("Version")
                                                                 vertemp_json = lc_json(category_ver)
-                                                                If dw_ver.SelectedItem.ToString = vertemp_json("VersionName").ToString Then
+                                                                If dw_ver.Text = vertemp_json("VersionName").ToString Then
                                                                     dwi.url = vertemp_json("Url")
                                                                     dwi.packid = vertemp_json("PackID")
                                                                 End If
@@ -171,6 +172,7 @@ Class Pages_Download
 
             Dim downloader = New DownloadService(downloader_config_read)
             AddHandler downloader.DownloadProgressChanged, AddressOf OnDownloadProgressChanged
+            AddHandler downloader.DownloadFileCompleted, AddressOf errordl
             Await downloader.DownloadFileTaskAsync(dwi.url, Path_Root() & "\MinecraftFiles\mcpack_nstv2dw.zip")
 
             '——————解压——————
@@ -255,6 +257,11 @@ Class Pages_Download
                                                End Sub))
 
         End If
+    End Sub
+
+    Private Sub errordl(sender As Object, e As AsyncCompletedEventArgs)
+
+
     End Sub
 
     Private Sub OnDownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)

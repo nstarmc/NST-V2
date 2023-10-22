@@ -115,7 +115,7 @@ Class Pages_Home
                 Dim info_reader As String = File.ReadAllText(dirlist & "\MCVersionInfo.json")
                 Dim localinfo As JObject = read_localvinfo(info_reader)
                 mcinfo.Dispatcher.Invoke(New Action(Sub()
-                                                        If mclist.SelectedItem.ToString = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
+                                                        If mclist.Text = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
                                                             mcinfo.Text = "Minecraft版本：" & localinfo("MCVersion").ToString & vbCrLf & "模组加载器：" & localinfo("ModLoader").ToString & vbCrLf & "光影加载器：" & localinfo("ShaderLoader").ToString & vbCrLf & "整合包唯一ID：" & localinfo("PackID").ToString & vbCrLf & "更新时间：" & ConvertStringToDateTime(localinfo("ReleaseTimespan").ToString).ToString
                                                             log_record("Home", "读取整合包信息：" & dirlist)
                                                             '读取启动器list
@@ -172,20 +172,25 @@ Class Pages_Home
                 Dim info_reader As String = File.ReadAllText(dirlist & "\MCVersionInfo.json")
                 Dim localinfo As JObject = read_localvinfo(info_reader)
                 mcinfo.Dispatcher.Invoke(New Action(Sub()
-                                                        If mclist.SelectedItem.ToString = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
+                                                        If mclist.Text = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
                                                             '启动启动器
                                                             Dim process As New Process()
-                                                            process.StartInfo.FileName = dirlist & "\" & mclacuncher.SelectedItem.ToString & ".exe"
+                                                            process.StartInfo.FileName = dirlist & "\" & mclacuncher.Text & ".exe"
                                                             process.StartInfo.UseShellExecute = False
                                                             process.StartInfo.RedirectStandardOutput = True
                                                             process.Start()
                                                             process.Close()
-                                                            log_record("Launch", "启动启动器：" & dirlist & "\" & mclacuncher.SelectedItem.ToString & ".exe")
-                                                            Growl.Success("为您启动启动" & mclist.SelectedItem.ToString & “整合包成功！”)
+                                                            log_record("Launch", "启动启动器：" & dirlist & "\" & mclacuncher.Text & ".exe")
+                                                            Growl.Success("为您启动启动" & mclist.Text & “整合包成功！”)
                                                         End If
                                                     End Sub))
             End If
         Next
 
+    End Sub
+
+    Private Sub Button_Click_1(sender As Object, e As RoutedEventArgs)
+        Dim thr1 As New Thread(AddressOf initialize_thr)
+        thr1.Start()
     End Sub
 End Class

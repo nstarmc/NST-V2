@@ -50,9 +50,14 @@ Class Pages_Java
     End Sub
 
     Private Sub mclist_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles mclist.SelectionChanged
-        '选择改变时，启用线程read信息
-        Dim thr1 As New Thread(AddressOf mclist_changed)
-        thr1.Start()
+        If Not IsNothing(mclist.SelectedItem) Then
+            '选择改变时，启用线程read信息
+            Dim thr1 As New Thread(AddressOf mclist_changed)
+            thr1.Start()
+        End If
+
+
+
     End Sub
 
     Private Sub mclist_changed(obj As Object)
@@ -62,7 +67,7 @@ Class Pages_Java
                 Dim info_reader As String = File.ReadAllText(dirlist & "\MCVersionInfo.json")
                 Dim localinfo As JObject = read_localvinfo(info_reader)
                 java_info.Dispatcher.Invoke(New Action(Sub()
-                                                           If mclist.SelectedItem.ToString = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
+                                                           If mclist.Text = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
                                                                java_info.Text = "Java " & localinfo("JavaVersion").ToString
                                                                log_record("DLJava", "读取整合包信息：" & dirlist)
                                                            End If
@@ -86,7 +91,7 @@ Class Pages_Java
                     Dim info_reader As String = File.ReadAllText(dirlist & "\MCVersionInfo.json")
                     Dim localinfo As JObject = read_localvinfo(info_reader)
                     java_info.Dispatcher.Invoke(New Action(Sub()
-                                                               If mclist.SelectedItem.ToString = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
+                                                               If mclist.Text = localinfo("MCVersion").ToString & "-" & localinfo("ModLoader").ToString & "[" & localinfo("ShaderLoader").ToString & "]~" & localinfo("PackID").ToString Then
                                                                    dlinfo.url = json_java("Java" & localinfo("JavaVersion").ToString)
                                                                    dlinfo.rootpath = dirlist
                                                                    log_record("DLJava", "读取整合包信息：" & dirlist)
@@ -194,5 +199,10 @@ Class Pages_Java
                                                  "平均速度：" & Math.Round(e.AverageBytesPerSecondSpeed / 1024 / 1024, 2) & "MB/S"
                                                      pg_dw.Value = Math.Round(e.ProgressPercentage, 1)
                                                  End Sub))
+    End Sub
+
+    Private Sub Button_Click_1(sender As Object, e As RoutedEventArgs)
+        Dim thr1 As New Thread(AddressOf initialize_thr)
+        thr1.Start()
     End Sub
 End Class
