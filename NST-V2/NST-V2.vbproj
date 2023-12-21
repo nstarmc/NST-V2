@@ -9,8 +9,8 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <PackageIcon>logo2.png</PackageIcon>
     <Platforms>AnyCPU;x64</Platforms>
-    <FileVersion>1.0.1.0</FileVersion>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

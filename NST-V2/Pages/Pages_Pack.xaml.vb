@@ -224,9 +224,9 @@ Class Pages_Pack
 
             Next
             For Each dir_temp In Directory.GetDirectories(gamepath)
-                    Dim temppath = Replace(dir_temp, gamepath & "\", "")
-                    If temppath = "versions" OrElse temppath = "assets" OrElse temppath = "shaderpacks" OrElse temppath = "mods" OrElse temppath = "libraries" OrElse temppath = "resourcepacks" Then
-                    Else
+                Dim temppath = Replace(dir_temp, gamepath & "\", "")
+                If temppath = "versions" OrElse temppath = "assets" OrElse temppath = "shaderpacks" OrElse temppath = "mods" OrElse temppath = "libraries" OrElse temppath = "resourcepacks" Then
+                Else
 
                     If temppath = "config" Then
                         If packinfo_use.clearModConfig = False Then
@@ -243,10 +243,30 @@ Class Pages_Pack
                     End If
 
                 End If
-                Next
+            Next
+            If Directory.Exists(Path_Root() & "\Working For Packing\MinecraftFiles\" &
+                                      packinfo_use.verMain & "." & packinfo_use.verMedium & "." & packinfo_use.verLast & "-" &
+                                      packinfo_use.modName & "-" & packinfo_use.shaderName & "\PCL\") = True Then
+                For i = 1 To 5
+                    Try
+                        File.Delete(Path_Root() & "\Working For Packing\MinecraftFiles\" &
+                                      packinfo_use.verMain & "." & packinfo_use.verMedium & "." & packinfo_use.verLast & "-" &
+                                      packinfo_use.modName & "-" & packinfo_use.shaderName & "\PCL\Log" & i & ".txt")
+                    Catch ex As Exception
 
-                '——————打包zip
-                addlog("开始压缩")
+                    End Try
+                Next
+                Try
+                    File.Delete(Path_Root() & "\Working For Packing\MinecraftFiles\" &
+                                  packinfo_use.verMain & "." & packinfo_use.verMedium & "." & packinfo_use.verLast & "-" &
+                                  packinfo_use.modName & "-" & packinfo_use.shaderName & "\PCL\LatestLaunch.bat")
+                Catch ex As Exception
+
+                End Try
+            End If
+
+            '——————打包zip
+            addlog("开始压缩")
             ' 发布压缩信息
             text_dwinfo.Dispatcher.Invoke(New Action(Sub()
                                                          text_dwinfo.Text = ("正在压缩···")
